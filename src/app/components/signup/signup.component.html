@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+
+                <h1 class="text-center pb-4 pt-3">
+                   User Registration
+                </h1>
+                <form  [formGroup] = "service.formModel" autocomplete="off" (submit) = "onSbmit()">
+                    <div class=form-group>
+                        <label for="UserName" > UserName</label>
+                        <input class="validate" formControlName="UserName" class="form-control" required>
+
+
+
+                    </div>
+                    <div class=form-group>
+                        <label for="Password" > Password</label>
+                        <input  type ="password" formControlName="Password" class="form-control" required>
+                        
+
+
+
+                    </div>
+                    <div class=form-group>
+                        <label for="Email"> Email</label>
+                        <input formControlName="Email" class="form-control" required>
+
+
+
+                    </div>
+                    <div class=form-group>
+                        <label for="MobileNumber"> MobileNumber</label>
+                        <input  formControlName="MobileNumber" class="form-control" required>
+
+
+
+                    </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-8 offset-md-2"> 
+                                <button type="submit" class="btn btn-md btn-block btn-primary" [disabled] = "service.formModel.invalid" >Sign up</button>
+
+                            </div>
+                        </div>
+                   
+
+                </form>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                
+
+
+
+
+
+
+
+
+
+

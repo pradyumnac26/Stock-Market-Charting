@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center pb-4 pt-3">
+                   User Login 
+                </h1>
+                <form #form='ngForm' autocomplete="off" (submit)="onSummit(form)" >
+                    <div class=form-group>
+                        <label  > UserName</label>
+                        <input class="validate"  name="UserName" #UserName="ngModel" [(ngModel)]="formModel.UserName" class="form-control" required>
+
+
+
+                    </div>
+                    <div class=form-group>
+                        <label > Password</label>
+                        <input  type="password" name="Password" #Password ="ngModel" [(ngModel)]="formModel.Password" class="form-control" required>
+
+
+
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group vol-md-8">
+                            <button type = "submit" class="btn btn-lg btn-primary" [disabled]="form.invalid">Login</button>
+                        </div>
+                    </div>
+                   
+                   
+
+                </form>
+             
+            </div>
+        </div>
+
+
+        </div>
+</div>

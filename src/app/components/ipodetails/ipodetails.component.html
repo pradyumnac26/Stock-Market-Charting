@@ -1,0 +1,98 @@
+<h3>Edit IPO details</h3>
+<br>
+
+<form #form = "ngForm" autocomplete = "off" (submit)="onBubmit(form)">
+    <input type="hidden" name="IpoDetailsId" #IpoDetailsId = "ngModel" [(ngModel)]="iposervice.formData.IpoDetailsId">
+   <div class="form-row">
+    <div class="form-group col-md-6">
+        <label >Company Name</label>
+        <input name="Companyname" #Companyname = "ngModel" [(ngModel)]="iposervice.formData.Companyname" class="form-control" required >
+       
+      </div>
+      <div class="form-group col-md-6">
+          <label >Stock Exchange</label>
+          <input name="StockExchange" #StockExchange = "ngModel" [(ngModel)]="iposervice.formData.StockExchange" class="form-control" required>
+         
+        </div>
+
+   </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+        <label >Price Per Share</label>
+        <input name="Pricepershare" #Pricepershare = "ngModel" [(ngModel)]="iposervice.formData.Pricepershare" class="form-control" required>
+       
+      </div>
+      <div class="form-group col-md-6">
+        <label >Total Shares</label>
+        <input name="Totalshares" #Totalshares = "ngModel" [(ngModel)]="iposervice.formData.Totalshares" class="form-control" required>
+       
+      </div>
+       
+   </div>
+   <div class="form-row">
+
+    
+    <div class="form-group col-md-6">
+        <label >Open date ime</label>
+        <input name="Opendatetime" #Opendatetime = "ngModel" [(ngModel)]="iposervice.formData.Opendatetime" class="form-control" required>
+       
+      </div>
+      <div class="form-group col-md-6">
+        <label >Remarks</label>
+        <input name="Remarks" #Remarks = "ngModel" [(ngModel)]="iposervice.formData.Remarks" class="form-control" >
+       
+      </div>
+   </div>
+
+      <div class="form-group">
+          <button type="submit" [disabled]="form.invalid" class= " btn btn-success">Submit</button>
+      </div>
+</form>
+<br>
+<br>
+
+<div class="container">
+    
+<table class="table table-striped"> 
+    <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>StockExchange</th>
+          <th>price Per Share</th>
+          <th>Total Share</th>
+          <th>Open date time</th>
+          <th>Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr *ngFor= "let ipo of iposervice.list">
+        <td >
+            {{ipo.companyname}}
+        </td>
+        <td >
+            {{ipo.stockExchange}}
+        </td>
+        <td >
+            {{ipo.pricepershare}}
+        </td>
+        <td >
+            {{ipo.totalshares}}
+        </td>
+        <td >
+            {{ipo.opendatetime}}
+        </td>
+        <td >
+            {{ipo.remarks}}
+        </td>
+        <td><button (click) = "populateForm(ipo)" class="btn btn-sm btn-outline-primary">Update</button></td>
+        <td><button (click) = "nDelete(ipo.ipoDetailsId)" class="btn btn-sm btn-outline-danger">Delete</button></td>
+    
+    </tr>
+    </tbody>
+</table>
+
+</div>
+<br>
+<br>
+
+<button (click) = "onBk()" class="btn btn-success">Back</button>

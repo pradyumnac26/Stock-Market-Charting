@@ -1,0 +1,55 @@
+
+            
+    <div class="grid-table">
+      <div class="thead">
+        <div class="tr">
+            <div class="td">Stock Exchange</div>
+            <div class="td">Brief</div>
+            <div class="td">Contact Address</div>
+            <div class="td">Remark</div>
+            <div class="td"><button class="btn btn-outline-success" (click) = "addexchanges()">Add New Exchange</button></div>
+            <div class="td">
+                <span *ngIf = "notification" class="elementToFadeInAndOut">
+                    <i class="fas fa-check-circle {{notification.class}}"></i>
+    {{notification.message}}
+                </span>
+            </div>
+        </div>
+       
+        </div>
+        <div class="tbody">
+            <form  class="tr" [formGroup]="fg"  *ngFor="let fg of exchangeforms.controls;let i=index" (submit)="recordSubmit(fg)">
+                <div class="td">
+                    <input  class="form-control" formControlName="stockExchanges">
+                </div>
+                <div class="td">
+                    <input  class="form-control" formControlName="brief">
+                </div>
+                <div class="td">
+                    <input  class="form-control" formControlName="contactAddress">
+                </div>
+                <div class="td">
+                    <input  class="form-control" formControlName="remarks">
+                </div>
+                <div class="td">
+                    <button type="submit" class="btn btn-success" [disabled]="fg.invalid">
+                        {{fg.get('stockExchangeId').value == 0 ? 'Submit' : 'Update'}}
+                        </button>
+                        <button class="btn btn-light ml-1" (click) = "onDelete(fg.get('stockExchangeId').value,i)"> 
+                            Delete
+                        </button>    
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <button class= "btn btn-success" (click)="onBack()">Back</button> 
+    
+    
+      
+    
+ 
+
+  

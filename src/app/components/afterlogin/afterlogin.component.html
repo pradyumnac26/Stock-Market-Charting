@@ -1,0 +1,21 @@
+
+
+  <div class="card m-5" style="width:18rem" *ngIf="userDetails">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</li>
+      <li class="list-group-item"><strong>FullName : </strong>{{userDetails.email}}</li>
+      <li class="list-group-item"><strong>Email : </strong>{{userDetails.mobileNumber}}</li>
+    </ul>
+  </div>
+
+  
+<div class="container">
+
+  <div class="btn-group">
+    
+    <button type="button" class="btn btn-primary" (click) = "onSlip()">Companies Profiles</button>
+    <button type="button" class="btn btn-primary" (click) = "onSlick()" >IPO details</button>
+    <button type="button" class="btn btn-primary" (click) = "onDlick()">Compare Companies</button>
+
+  </div>
+</div>

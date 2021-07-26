@@ -1,0 +1,56 @@
+
+            
+    <div class="grid-table">
+        <div class="thead">
+          <div class="tr">
+        
+              <div class="td">Companies</div>
+              <div class="td">Sector</div>
+              <div class="td">Stock Exchange</div>
+              <div class="td"><button class="btn btn-outline-success" (click) = "addCompanies()">Add New Company</button></div>
+              <div class="td">
+                  <span *ngIf = "notification" class="elementToFadeInAndOut">
+                      <i class="fas fa-check-circle {{notification.class}}"></i>
+      {{notification.message}}
+                  </span>
+              </div>
+          </div>
+         
+          </div>
+          <div class="tbody">
+              <form  class="tr" [formGroup]="fg"  *ngFor="let fg of companyforms.controls;let i=index" (submit)="seeSubmit(fg)">
+                
+                  <div class="td">
+                      <input  class="form-control" formControlName="companies">
+                  </div>
+                  <div class="td">
+                      <select  class="form-control" formControlName="sectorNameId">
+                          <option value="0">Select</option>
+                          <option *ngFor = "let item of sectorList" value ="{{item.sectorNameId}}">{{item.sector}}</option>
+                          </select>
+                  </div>
+                  <div class="td">
+                    <select  class="form-control" formControlName="exchangesId">
+                        <option value="0">Select</option>
+                        <option *ngFor = "let item of exchcompList" value ="{{item.exchangesId}}">{{item.exc}}</option>
+                        </select>
+                </div>
+
+                
+                  <div class="td">
+                      <button type="submit" class="btn btn-success" [disabled]="fg.invalid">
+                          {{fg.get('manageCompaniesId').value == 0 ? 'Submit' : 'Update'}}
+                          </button>
+                          <button class="btn btn-light ml-1" (click) = "onDelet(fg.get('manageCompaniesId').value,i)"> 
+                              Delete
+                          </button>    
+                  </div>
+              </form>
+  
+          </div>
+      </div>
+      <br>
+      <br>
+      <button class= "btn btn-success" (click)="onBac()">Back</button> 
+      
+      

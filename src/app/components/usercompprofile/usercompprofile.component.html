@@ -1,0 +1,43 @@
+<div class="container">
+    
+    <table class="table table-striped"> 
+        <thead>
+            <tr>
+                
+              <th>Company Name</th>
+              <th>Ceo</th>
+              <th>Turn Over</th>
+              <th>Brief Description</th>
+              <th>IPO date</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+        <tr *ngFor= "let ipo of service.list">
+            <td >
+                {{ipo.companyName}}
+            </td>
+            <td >
+                {{ipo.ceo}}
+            </td>
+            <td >
+                {{ipo.turnOver}}
+            </td>
+            <td >
+                {{ipo.briefDescription}}
+            </td>
+            <td >
+                {{ipo.ipoDate}}
+            </td>
+         
+     
+        
+        </tr>
+        </tbody>
+    </table>
+    
+    </div>
+    <br>
+    <br>
+    
+    <button (click) = "onBk()" class="btn btn-success">Back</button>

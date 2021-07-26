@@ -1,0 +1,45 @@
+<div class="container">
+    
+<table class="table table-striped"> 
+    <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>StockExchange</th>
+          <th>price Per Share</th>
+          <th>Total Share</th>
+          <th>Open date time</th>
+          <th>Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr *ngFor= "let ipo of iposervice.list">
+        <td >
+            {{ipo.companyname}}
+        </td>
+        <td >
+            {{ipo.stockExchange}}
+        </td>
+        <td >
+            {{ipo.pricepershare}}
+        </td>
+        <td >
+            {{ipo.totalshares}}
+        </td>
+        <td >
+            {{ipo.opendatetime}}
+        </td>
+        <td >
+            {{ipo.remarks}}
+        </td>
+       
+    
+    </tr>
+    </tbody>
+</table>
+
+</div>
+<br>
+<br>
+
+<button (click) = "onBk()" class="btn btn-success">Back</button>
+
